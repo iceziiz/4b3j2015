@@ -66,18 +66,23 @@ button { font: inherit; }
 .section-paper { background: var(--paper-soft); }
 .section-topline { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--line-light); font-size: 9px; letter-spacing: .12em; }
 .section-topline span:last-child { color: #85837b; text-align: right; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; padding-top: 76px; }
+.about { color: var(--white); background: #171716; }
+.about-caption { padding: 54px 7% 42px; }
+.about-kicker, .about-caption-note { margin: 0; font-family: var(--mono); letter-spacing: .14em; }
+.about-kicker { margin-bottom: 15px; color: #d3bd6e; font-size: 10px; }
+.about-caption h2 { margin: 0; font-size: clamp(72px, 12vw, 160px); font-weight: 800; line-height: .82; letter-spacing: -.09em; }
+.about-caption h2 span { color: #d3bd6e; }
+.about-caption-note { margin-top: 24px; color: rgba(247,246,242,.8); font-size: 9px; }
+.about-caption-note span { padding: 0 8px; color: #d3bd6e; }
+.about-image {
+    min-height: 100svh;
+    background:
+        linear-gradient(180deg, #171716 0%, rgba(23,23,22,.55) 14%, transparent 36%, transparent 68%, rgba(23,23,22,.72) 88%, #171716 100%),
+        url("images/image20_工作區域 1.png") center / cover no-repeat;
+}
 .eyebrow-dark { color: #78766e; }
 .about-heading h2, .education-intro h2, .skills-heading h2, .works-heading h2, .contact h2 { margin: 0; font-size: clamp(54px, 7.3vw, 100px); font-weight: 800; line-height: .91; letter-spacing: -.08em; }
 .about-heading h2 span, .education-intro h2 span, .skills-heading h2 span, .works-heading h2 span { color: #918c7e; }
-.about-photo-placeholder { position: relative; display: grid; place-items: center; width: 76%; aspect-ratio: 1.16; margin: 54px 0 0 9%; overflow: hidden; color: #77756e; background: #d5d2c9; }
-.about-photo-placeholder::before, .about-photo-placeholder::after { position: absolute; width: 55%; height: 1px; background: rgba(23,23,22,.17); content: ""; transform: rotate(38deg); }
-.about-photo-placeholder::after { transform: rotate(-38deg); }
-.about-photo-mark { z-index: 1; padding: 9px 13px; color: #5e5c55; background: rgba(240,238,232,.72); font-family: var(--mono); font-size: 9px; line-height: 1.6; letter-spacing: .12em; text-align: center; }
-.about-photo-id { position: absolute; right: 13px; bottom: 12px; font-family: var(--mono); font-size: 8px; letter-spacing: .1em; }
-.about-content { padding-top: 41px; font-size: 14px; line-height: 2; }
-.about-content > p { max-width: 550px; margin: 0 0 18px; }
-.about-content .about-lead { margin-bottom: 20px; font-size: 20px; font-weight: 600; line-height: 1.8; }
 .placeholder-text { padding: 0 3px; border-bottom: 1px solid var(--gold); }
 .english-copy { color: #77756f; font-family: var(--mono); font-size: 11px; line-height: 1.9; }
 .about-details { margin-top: 34px; border-top: 1px solid var(--line-light); }
@@ -212,7 +217,6 @@ button { font: inherit; }
     .scroll-cue { left: 8%; }
     .section-pad { padding-right: 8%; padding-left: 8%; }
     .project-pair { grid-template-columns: 1fr; width: 119.0476%; margin-left: -9.5238%; }
-    .about-grid { gap: 7%; }
 }
 @media (max-width: 760px) {
     html { scroll-padding-top: 64px; }
@@ -234,14 +238,15 @@ button { font: inherit; }
     .scroll-cue { bottom: 31px; left: 7%; font-size: 8px; }
     .hero-coordinate { top: 76px; right: 7%; bottom: auto; font-size: 8px; }
     .section-pad { padding: 72px 7%; }
+    .about-caption { padding: 44px 7% 32px; }
+    .about-caption h2 { font-size: clamp(64px, 15vw, 110px); }
+    .about-caption-note { max-width: 290px; font-size: 8px; line-height: 1.8; }
+    .about-image { background-position: center, 56% center; }
     .work-grid { grid-template-columns: 1fr; gap: 36px; }
     .work-series { grid-template-columns: 1fr; gap: 24px; }
     .project-pair { width: 116.2791%; margin-left: -8.1395%; }
     .section-topline { font-size: 8px; }
-    .about-grid, .education-grid { grid-template-columns: 1fr; gap: 38px; padding-top: 52px; }
-    .about-heading h2 { font-size: clamp(64px, 15vw, 90px); }
-    .about-photo-placeholder { width: 62%; margin-top: 33px; }
-    .about-content { padding-top: 0; }
+    .education-grid { grid-template-columns: 1fr; gap: 38px; padding-top: 52px; }
     .education-intro h2 { font-size: clamp(62px, 14vw, 90px); }
     .education-star { right: 17%; bottom: -8%; font-size: 60px; }
     .timeline-item { grid-template-columns: 29px minmax(0, 1fr); gap: 13px; }
@@ -276,7 +281,6 @@ button { font: inherit; }
     .hero-name-zh { font-size: 13px; }
     .hero-side-note { font-size: 8px; }
     .section-topline span:last-child { max-width: 47%; }
-    .about-content .about-lead { font-size: 17px; }
 }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
